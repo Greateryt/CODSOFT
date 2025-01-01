@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Element</title>
+</head>
+<body>
+    <form action="/updated" method="post">
+        <label for="">item_id</label>
+        <input type="text" readonly value={{item_id}} name="item_id" id="item_id"/>
+
+        <label for="element">element</label>
+        <input type="text" name="element" id="element" value="{% for message in messages if message.id == item_id %}{{ message.element }}{% endfor %}" />
+
+        <button type="submit">Update</button>
+
+    </form>
+</body>
+</html>

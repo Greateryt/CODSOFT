@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .calculator {
+            width: 300px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #f0f0f0; 
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+        }
+
+        #display {
+            width: calc(100% - 12px);
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 1.2em;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            text-align: right;
+            box-sizing: border-box;
+        }
+
+        .as {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            grid-gap: 5px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 3px;
+            background-color: #e0e0e0; 
+            cursor: pointer;
+            transition: background-color 0.2s; 
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); 
+        }
+
+        button:hover {
+            background-color: #d0d0d0; 
+        }
+
+        .operator {
+            background-color: #ff9800; 
+            color: white;
+        }
+
+        .operator:hover {
+            background-color: #f57c00;
+        }
+
+        .clear {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .clear:hover {
+            background-color: #d32f2f;
+        }
+
+        .equal {
+            background-color: #4caf50;
+            color: white;
+            grid-column: 3 / span 2; 
+        }
+
+        .equal:hover {
+            background-color: #388e3c;
+        }
+
+        .zero {
+            grid-column: 1 / span 2; 
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <form method="POST" action="/">
+            {% if resulttt %}
+                <input type="text" id="display" value="{{ resulttt }}" readonly>
+            {% else %}
+                <input type="text" id="display" value="" readonly>
+            {% endif %}
+            <div class="as">
+                <button type="submit" name="char" value="+">+</button>
+                <button type="submit" name="char" value="-">-</button>
+                <button type="submit" name="char" value="*">*</button>
+                <button type="submit" name="char" value="/">/</button>
+                <button type="submit" name="char" value="7">7</button>
+                <button type="submit" name="char" value="8">8</button>
+                <button type="submit" name="char" value="9">9</button>
+                <button type="submit" name="char" value="C">C</button>
+                <button type="submit" name="char" value="4">4</button>
+                <button type="submit" name="char" value="5">5</button>
+                <button type="submit" name="char" value="6">6</button>
+                <button type="submit" name="char" value="1">1</button>
+                <button type="submit" name="char" value="2">2</button>
+                <button type="submit" name="char" value="3">3</button>
+                <button type="submit" name="char" value="0">0</button>
+                <button type="submit" name="char" value=".">.</button>
+                <button type="submit" formmethod="POST" formaction="{{ url_for('calculate') }}">=</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

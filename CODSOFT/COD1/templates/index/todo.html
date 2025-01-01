@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Codsoft TODO List</h1>
+
+    <form method="post" action="/submit">
+        <label for="#element">Add Item</label>
+        <input type="text" name="element" id="element"/>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <table border="1px" bordercolor="red" cellspacing="1px" cellpadding="10px" width="400px" style="text-align: center;">
+        
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Item</td>
+                <td>Delete</td>
+                <td>Update</td>
+            </tr>
+        </thead>
+        {%for element in messages%}
+            <tr>
+                <td>{{element['id']}}</td>
+                <td>{{element['element']}}</td>
+                <td><a href="{{ url_for('delete',item_id=element.id) }}">Delete</a></td>
+                <td><a href="{{ url_for('update',item_id=element.id) }}">Update</a></td>
+            </tr>
+        {%endfor%}
+    </table>
+
+</body>
+</html>

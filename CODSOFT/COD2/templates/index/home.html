@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: linear-gradient(to bottom right, #283c4f, #1a242f); 
+            color: #eee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #eee;
+            margin-bottom: 20px;
+            width: 200px;
+            font-size: 1em;
+            outline: none; 
+        }
+
+        input[type="number"]:focus {
+            box-shadow: 0 0 5px #64b5f6; 
+        }
+
+        button {
+            padding: 12px 25px;
+            background: linear-gradient(to bottom, #428bca, #357ebd); 
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background 0.3s ease; 
+        }
+
+        button:hover {
+            background: linear-gradient(to bottom, #357ebd, #2a6496);
+        }
+
+        #generated-password { 
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-size: 1.4em;
+            word-wrap: break-word; 
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Password Generator</h1>
+
+    <form method="post" action="/submit">
+        <label for="length">Enter length here:</label>
+        <input type="number" name="length" id="length" min="1" required />
+        <button type="submit">Generate Password</button>
+    </form>
+
+    <h1>Generated Password</h1>
+    <div id="generated-password">
+        {% if passs %}
+            {{ passs }}
+        {% else %}
+            None
+            <script>alert("Password must be in 6-20")</script>
+        {% endif %}
+    </div>
+
+</body>
+</html>

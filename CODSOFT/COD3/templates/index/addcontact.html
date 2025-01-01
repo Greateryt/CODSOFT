@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/blaze-circuit-bold-sport-racing-font');
+        body {
+            justify-content: center;
+            background-color: black;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+            font-family: 'Blaze Circuit', sans-serif;
+                                                
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333; 
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555; 
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; 
+        }
+        textarea{
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .error{
+            color: red;
+            font-size: small;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="contact">Contact Book</h1>
+        <form action="/added" method="post">
+            <label for="storeName">Store Name:</label>
+            <input type="text" id="storeName" name="storeName" required>
+            <div class="error" id="storeNameError"></div>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <div class="error" id="phoneError"></div>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <div class="error" id="emailError"></div>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+            <div class="error" id="addressError"></div>
+
+            <input type="submit" value="Add Contact">
+        </form>
+    </div>
+</body>
+</html>
